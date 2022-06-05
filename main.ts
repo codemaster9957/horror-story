@@ -18,7 +18,8 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.NotMoving))
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.darkGroundCenter, function (sprite, location) {
-    color.FadeToBlack.startScreenEffect(500)
+    color.FadeToBlack.startScreenEffect(100)
+    color.pauseUntilFadeDone()
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.FacingRight, Predicate.MovingRight))
