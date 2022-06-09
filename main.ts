@@ -5,6 +5,14 @@ namespace SpriteKind {
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.FacingUp, Predicate.MovingUp))
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLadder, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level13`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(8.5, 1))
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level11`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(14.5, 29))
+})
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.NotMoving))
 })
@@ -18,14 +26,22 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.NotMoving))
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.darkGroundCenter, function (sprite, location) {
-    color.FadeToBlack.startScreenEffect(100)
-    color.pauseUntilFadeDone()
+    tiles.loadMap(tiles.createMap(tilemap`level7`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 15))
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.FacingRight, Predicate.MovingRight))
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairEast, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level11`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(15, 15))
+})
 controller.up.onEvent(ControllerButtonEvent.Released, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.NotMoving))
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level9`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 2))
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.setCharacterState(mySprite, characterAnimations.rule(Predicate.FacingDown, Predicate.MovingDown))
